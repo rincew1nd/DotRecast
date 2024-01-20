@@ -53,7 +53,7 @@ public class RcToolsetView : IRcView
 
     public void Draw(double dt)
     {
-        ImGui.Begin("Tools");
+        ImGui.Begin("Tools", ImGuiWindowFlags.AlwaysAutoResize);
 
         // size reset
         var size = ImGui.GetItemRectSize();

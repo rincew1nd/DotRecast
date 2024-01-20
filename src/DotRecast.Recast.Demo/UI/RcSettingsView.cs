@@ -70,7 +70,7 @@ public class RcSettingsView : IRcView
     {
         var settings = _sample.GetSettings();
 
-        ImGui.Begin("Properties");
+        ImGui.Begin("Properties", ImGuiWindowFlags.AlwaysAutoResize);
 
         // size reset
         var size = ImGui.GetItemRectSize();
