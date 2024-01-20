@@ -106,6 +106,7 @@ public class RecastDemo : IRecastDemoChannel
     private float _moveUp;
     private float _moveDown;
     private float _moveAccel;
+    private float _scrollAccel;
 
     private int[] viewport;
     private bool markerPositionSet;
@@ -146,6 +147,11 @@ public class RecastDemo : IRecastDemoChannel
             {
                 scrollZoom -= 1.0f;
             }
+        }
+
+        if (0 < _scrollAccel)
+        {
+            scrollZoom *= _scrollAccel * 2.0f;
         }
 
         var modelviewMatrix = dd.ViewMatrix(cameraPos, cameraEulers);
@@ -447,6 +453,7 @@ public class RecastDemo : IRecastDemoChannel
             _moveUp = Math.Clamp(_moveUp + tempMoveUp * dt * 4.0f, 0, 2.0f);
             _moveDown = Math.Clamp(_moveDown + tempMoveDown * dt * 4.0f, 0, 2.0f);
             _moveAccel = Math.Clamp(_moveAccel + tempMoveAccel * dt * 4.0f, 0, 2.0f);
+            _scrollAccel = Math.Clamp(_scrollAccel + tempMoveAccel * dt * 4.0f, 0, 3.0f);
         }
     }
 
